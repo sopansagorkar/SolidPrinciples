@@ -1,19 +1,19 @@
 # SolidPrinciples
 
-Principle 1: Single Responsibility Principle (SRP)
+## Principle 1: Single Responsibility Principle (SRP)
 
 
 A class should have one, and only one, reason to change.In other words to achieve this, a class should only have a single responsibility and it should do that very well. Every class in your automation should only have a single responsibility and that all of its methods should be aligned with that responsibility.
 
 
-Letís try to understand this principle by looking at an example from our daily life. When you are driving a car/bike, you want to fully concentrate on the single responsibility ñ driving. You donít want to do or concentrate on other tasks like talking on a phone, eating.
+Let‚Äôs try to understand this principle by looking at an example from our daily life. When you are driving a car/bike, you want to fully concentrate on the single responsibility ‚Äì driving. You don‚Äôt want to do or concentrate on other tasks like talking on a phone, eating.
 
  
 
-Automation Examples:
+### Automation Examples:
 
 
-a) Page Object Framework implements SRP very well. We are going to have one class responsible for only one web page in the application. We shouldnít have a very big class with many responsibilities like test methods, UI action methods, excel read/write methods.
+a) Page Object Framework implements SRP very well. We are going to have one class responsible for only one web page in the application. We shouldn‚Äôt have a very big class with many responsibilities like test methods, UI action methods, excel read/write methods.
 
 
 b) We can have very specific helper classes like ExcelHelper, DatabaseHelper to work with a excel file or database to implement Data Driven Framework.
@@ -28,68 +28,68 @@ testSuccessfulLogin (username,password) which tests only one thing that login sh
 
  
 
-Principle 2: Open Closed Principle (OCP)
+## Principle 2: Open Closed Principle (OCP)
 
 
 Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification
 
 
-You should be able to easily add additional functionality for a class without changing its code. OCP says that a class should be open for extension and closed for modification. The ìclosedî part of the rule states that once a class has been developed and tested, the class code shouldnít change except for any bug fixes. The ìopenî part of the rule states that you should be able to extend existing code in order to introduce new functionality. We are trying to add new functionality without modifying the existing code/functionality and by adding new classes/code as required. This is very important to minimise the impact of changes and errors from existing code.
+You should be able to easily add additional functionality for a class without changing its code. OCP says that a class should be open for extension and closed for modification. The ‚Äúclosed‚Äù part of the rule states that once a class has been developed and tested, the class code shouldn‚Äôt change except for any bug fixes. The ‚Äúopen‚Äù part of the rule states that you should be able to extend existing code in order to introduce new functionality. We are trying to add new functionality without modifying the existing code/functionality and by adding new classes/code as required. This is very important to minimise the impact of changes and errors from existing code.
 
 
-Letís try to understand this principle by looking at an example from our daily life. Letís say you live in a 2 bedroom house and you are looking for a 3 bedroom house due to reasons like growing children. If you have free/unused space available, itís very easy to extend the house by building another bedroom. Also with this, you are minimise the impact of changes on the existing 2 bedroom house.
+Let‚Äôs try to understand this principle by looking at an example from our daily life. Let‚Äôs say you live in a 2 bedroom house and you are looking for a 3 bedroom house due to reasons like growing children. If you have free/unused space available, it‚Äôs very easy to extend the house by building another bedroom. Also with this, you are minimise the impact of changes on the existing 2 bedroom house.
 
 
-Automation Example:
+### Automation Example:
 
 
-Letís say that you are automating an online store application. You have Customer class to represent store customers and respective related customer actions. Now, your company has introduced VIP customer concept to reward loyal customers with discounts and free delivery. To implement VIP customer behaviour in your automation, OCP suggests that keep the Customer class same without modifying it and create a new VipCustomer class by inheriting from Customer class. Now in the VipCustomer class extend the behaviour as required.
+Let‚Äôs say that you are automating an online store application. You have Customer class to represent store customers and respective related customer actions. Now, your company has introduced VIP customer concept to reward loyal customers with discounts and free delivery. To implement VIP customer behaviour in your automation, OCP suggests that keep the Customer class same without modifying it and create a new VipCustomer class by inheriting from Customer class. Now in the VipCustomer class extend the behaviour as required.
 
 
 
-Principle 3: Liskov Substitution Principle (LSP)
+## Principle 3: Liskov Substitution Principle (LSP)
 
 
 Subtypes must be substitutable for their base types
 
 
-When you pass subtype for a base type argument or when you assign/instantiate base type with subtype, the program/code should work properly without changing its behaviour and shouldnít break. This principle was introduced by and named after Barbara Liskov.
+When you pass subtype for a base type argument or when you assign/instantiate base type with subtype, the program/code should work properly without changing its behaviour and shouldn‚Äôt break. This principle was introduced by and named after Barbara Liskov.
 
 
-Letís try to understand this principle by looking at an example from our daily life. Letís say that you have a wall clock at home or you have a wrist watch. They both need batteries to work. If you buy batteries as per the specifications from any brand like Panasonic, Sony, Duracell, you expect the wall clock or wrist watch to work properly without any issues when powered by those batteries.
+Let‚Äôs try to understand this principle by looking at an example from our daily life. Let‚Äôs say that you have a wall clock at home or you have a wrist watch. They both need batteries to work. If you buy batteries as per the specifications from any brand like Panasonic, Sony, Duracell, you expect the wall clock or wrist watch to work properly without any issues when powered by those batteries.
 
 
-Automation Example:
+### Automation Example:
 
 
-Considering the above example of automating an online store application with Customer and VIP Customer categories, letís say there is a method calculateDeliveryCharge(Customer customer, OrderInfo orderInfo) which calculates delivery charge when customer and order information is passed. When we pass Customer object to calculateDeliveryCharge() method with order information, it should return delivery charge. Note that we are providing free delivery to VIP Customers. So, when we pass VipCustomer object for customer argument to calculateDeliveryCharge() method with order information, the program/code should work properly without changing its behaviour and shouldnít throw any exceptions.
+Considering the above example of automating an online store application with Customer and VIP Customer categories, let‚Äôs say there is a method calculateDeliveryCharge(Customer customer, OrderInfo orderInfo) which calculates delivery charge when customer and order information is passed. When we pass Customer object to calculateDeliveryCharge() method with order information, it should return delivery charge. Note that we are providing free delivery to VIP Customers. So, when we pass VipCustomer object for customer argument to calculateDeliveryCharge() method with order information, the program/code should work properly without changing its behaviour and shouldn‚Äôt throw any exceptions.
 
 
-Principle 4:Interface Segregation Principle (ISP)
+## Principle 4:Interface Segregation Principle (ISP)
 
 
 Make fine grained interfaces that are client specific
 
 
-Itís good to have small role specific interfaces rather than one big general interface. ISP states that clients should never be forced to implement interfaces that they donít use or clients should never be forced to depend on methods that they donít use. When a class depends upon another class, the number of members visible from the another class to the dependent class should be minimised. When you apply the ISP, classes implement multiple smaller role specific interfaces and dependent classes depend on required role specific interfaces for the given task.
+It‚Äôs good to have small role specific interfaces rather than one big general interface. ISP states that clients should never be forced to implement interfaces that they don‚Äôt use or clients should never be forced to depend on methods that they don‚Äôt use. When a class depends upon another class, the number of members visible from the another class to the dependent class should be minimised. When you apply the ISP, classes implement multiple smaller role specific interfaces and dependent classes depend on required role specific interfaces for the given task.
 
 
-Letís try to understand this principle by looking at an example from our daily life. When you are travelling in a train and when ticket inspector wants to check your ticket, you will be showing only your ticket and not all your luggage. Similarly, ticket inspector wants to check your ticket only and not any other belongings of you. We should reveal/expose only whatís required for the given task.
+Let‚Äôs try to understand this principle by looking at an example from our daily life. When you are travelling in a train and when ticket inspector wants to check your ticket, you will be showing only your ticket and not all your luggage. Similarly, ticket inspector wants to check your ticket only and not any other belongings of you. We should reveal/expose only what‚Äôs required for the given task.
 
 
-Automation Example:
+### Automation Example:
 
 
 Selenium API has good examples of ISP. Selenium API has a number of very fine grained, role based client specific interfaces like WebDriver, WebElement, Alert. We should favour role based interfaces instead of generic interfaces.
 
 
-Principle 5: Dependency Inversion Principle (DIP)
+## Principle 5: Dependency Inversion Principle (DIP)
 
 
 Depend on abstractions, not on concretions
 
 
-DIP states that Software entities (classes, modules, functions, etc.) should depend on abstractions (like interfaces) and not on concretions (like concrete class types). DIP promotes code to an interface approach. For example, in Selenium automation code, we code to a WebDriver interface variable ìdriverî whenever we want to work with web browser and the same code works for any browser type like FirefoxDriver, ChromeDriver, InternetExploerDriver which implements the WebDriver interface.
+DIP states that Software entities (classes, modules, functions, etc.) should depend on abstractions (like interfaces) and not on concretions (like concrete class types). DIP promotes code to an interface approach. For example, in Selenium automation code, we code to a WebDriver interface variable ‚Äúdriver‚Äù whenever we want to work with web browser and the same code works for any browser type like FirefoxDriver, ChromeDriver, InternetExploerDriver which implements the WebDriver interface.
 
 
 DIP mainly suggests below 2 rules:
@@ -99,10 +99,10 @@ High level modules should not depend upon low level modules. Both should depend 
 Abstractions should not depend upon details. Details should depend upon abstractions.
 
 
-Letís try to understand this principle by looking at an example from our daily life. When you go to a cash machine/ATM, the cash machine/ATM expects a valid debit/credit card. The machine has a dependency on valid card abstraction and not on specific concrete type cards like only Visa, only Maestro or only issued by specific bank. The machine works for any valid card type implementation and we are providing the card to the machine from outside which provides so much flexibility and easiness to use the machine.
+Let‚Äôs try to understand this principle by looking at an example from our daily life. When you go to a cash machine/ATM, the cash machine/ATM expects a valid debit/credit card. The machine has a dependency on valid card abstraction and not on specific concrete type cards like only Visa, only Maestro or only issued by specific bank. The machine works for any valid card type implementation and we are providing the card to the machine from outside which provides so much flexibility and easiness to use the machine.
 
 
-Automation Example:
+### Automation Example:
 
 
 Look at below page object for Login Page
